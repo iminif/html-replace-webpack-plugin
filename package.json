@@ -1,0 +1,26 @@
+{
+  "name": "html-replace-webpack-plugin",
+  "version": "1.0.0",
+  "description": "A Webpack plugin for replace HTML contents with custom pattern string or regex.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iminif/html-replace-webpack-plugin.git"
+  },
+  "keywords": [
+    "html",
+    "replace",
+    "webpack",
+    "plugin",
+    "iminif"
+  ],
+  "author": "Nathanie <iminif@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iminif/html-replace-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/iminif/html-replace-webpack-plugin#readme"
+}
