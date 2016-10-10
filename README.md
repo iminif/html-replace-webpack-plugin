@@ -11,7 +11,7 @@ npm install html-replace-webpack-plugin --save-dev
 
 Then, add it to your `webpack.config.js` file:
 
-### In the `webpack.config.js` file:
+### In the `webpack.config.js` file as a plugin:
 ```javascript
 var webpack = require('webpack')
 var HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin')
@@ -51,18 +51,9 @@ module.exports = {
 
 // file types & file links
 const resource = {
-  js:
-  {
-    'bootstrap': '//cdn/bootstrap/bootstrap.min.js'
-  },
-  css:
-  {
-    'bootstrap': '//cdn/bootstrap/bootstrap.min.css'
-  },
-  img:
-  {
-    'the-girl': '//cdn/img/the-girl.jpg'
-  }
+  js: {'bootstrap': '//cdn/bootstrap/bootstrap.min.js'},
+  css: {'bootstrap': '//cdn/bootstrap/bootstrap.min.css'},
+  img:{'the-girl': '//cdn/img/the-girl.jpg'}
 }
 
 const tpl = {
@@ -81,7 +72,6 @@ const tpl = {
       <title>@@title</title>
       <!-- css:bootstrap -->
     </head>
-
     <body>
       <div>foo</div>
       <!-- js:bootstrap -->
@@ -97,7 +87,6 @@ const tpl = {
       <title>html replace webpack plugin</title>
       <link rel="stylesheet" type="text/css" href="//cdn/bootstrap/bootstrap.min.css">
     </head>
-
     <body>
       <div>`foo` has been replaced with `bar`</div>
       <script type="text/javascript" src="//cdn/bootstrap/bootstrap.min.js"></script>
@@ -109,23 +98,23 @@ const tpl = {
 html-replace-webpack-plugin can be called with an objects array or an object.
 
 ### Options for `html-replace-webpack-plugin`
-new HtmlReplaceWebpackPlugin([obj1[, obj2[, obj3[, ...]]]] | obj)
+new HtmlReplaceWebpackPlugin([obj1[, obj2[, obj3[, ...[, objN]]]]] | obj)
 
-#### [obj1[, obj2[, obj3[, ...]]]] | obj
+#### [obj1[, obj2[, obj3[, ...[, objN]]]]] | obj
 Type: `Objects Array` | `Object`
 
-#### obj1, obj2, obj3, ... | obj
+#### obj1, obj2, obj3, ..., objN | obj
 Type: `Object`
 
-#### objN.pattern
+#### obj.pattern
 Type: `String` | `RegExp`
 
 string or regex pattern for matching HTML content. See the [MDN documentation for RegExp] for details.
 
-#### objN.replacement
+#### obj.replacement
 Type: `String` | `Function`
 
-string to which the matching string be replace with, or function which return a string for replacing. See the [MDN documentation for String.replace] for details.
+string with which the matching string be replaced, or function which returns a string for replacing. See the [MDN documentation for String.replace] for details.
 
 [html-replace-webpack-plugin]: https://www.npmjs.com/package/html-replace-webpack-plugin
 [MDN documentation for RegExp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
