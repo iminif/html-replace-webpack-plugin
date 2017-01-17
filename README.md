@@ -24,7 +24,7 @@ module.exports = {
     {
       pattern: 'foo',
       replacement: '`foo` has been replaced with `bar`'
-    }, ,
+    },
     {
       pattern: '@@title',
       replacement: 'html replace webpack plugin'
