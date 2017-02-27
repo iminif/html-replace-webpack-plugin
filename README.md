@@ -11,7 +11,7 @@ npm install html-replace-webpack-plugin --save-dev
 
 Then, add it to your `webpack.config.js` file:
 
-### In the `webpack.config.js` file as a plugin:
+### In your `webpack.config.js` file:
 ```javascript
 var webpack = require('webpack')
 var HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin')
@@ -63,7 +63,7 @@ const tpl = {
 }
 ```
 
-#### In the `src/index.html` file:
+#### In your `src/index.html` file:
 ```html
 <!DOCTYPE html>
 <html lang="en">
