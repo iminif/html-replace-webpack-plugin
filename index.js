@@ -1,11 +1,6 @@
 function HtmlReplaceWebpackPlugin(options)
 {
   options = Array.isArray(options) ? options : [options]
-  options = options || [
-  {
-    pattern: undefined,
-    replacement: undefined
-  }]
 
   options.forEach(function(option)
   {
