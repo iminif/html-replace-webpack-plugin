@@ -28,7 +28,7 @@ function HtmlReplaceWebpackPlugin(options)
       }
       else
       {
-        htmlData = htmlData.replace(option.pattern, option.replacement)
+        htmlData = htmlData.split(option.pattern).join(option.replacement)
       }
     })
     return htmlData
