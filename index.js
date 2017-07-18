@@ -28,7 +28,8 @@ function HtmlReplaceWebpackPlugin(options)
       }
       else
       {
-        htmlData = htmlData.replace(option.pattern, option.replacement)
+        // htmlData = htmlData.replace(option.pattern, option.replacement) // v2.2.4@npmjs.com
+        htmlData = htmlData.split(option.pattern).join(option.replacement) // v2.2.5@npmjs.com
       }
     })
     return htmlData
