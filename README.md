@@ -1,12 +1,15 @@
 # [html-replace-webpack-plugin]
 A Webpack plugin for replace HTML contents with custom pattern string or regex.
 
+## Examples
+https://github.com/iminif/html-replace-webpack-plugin-howto
+
 ## Usage
 
 First, install `html-replace-webpack-plugin` as a development dependency:
 
 ```shell
-npm install html-replace-webpack-plugin --save-dev
+npm install html-replace-webpack-plugin
 ```
 
 Then, add it to your `webpack.config.js` file:
