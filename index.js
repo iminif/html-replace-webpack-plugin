@@ -17,7 +17,15 @@ function HtmlReplaceWebpackPlugin(options)
     {
       if(typeof option.replacement === 'function')
       {
-        var matches = null
+        var matches = null;
+        var isPatternValid = true;
+          try {
+              new RegExp(option.pattern);
+          } catch(e) {
+              isPatternValid = false;
+          }
+
+        if(!isPatternValid) throw new Error("Invalid `pattern` option provided, it must be a valid regex.");
         while((matches = option.pattern.exec(htmlData)) != null)
         {
           var replacement = option.replacement.apply(null, matches)
