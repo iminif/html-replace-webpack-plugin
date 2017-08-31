@@ -9,7 +9,7 @@ https://github.com/iminif/html-replace-webpack-plugin-howto
 First, install `html-replace-webpack-plugin` as a development dependency:
 
 ```shell
-npm install html-replace-webpack-plugin
+npm i --save-dev html-replace-webpack-plugin
 ```
 
 Then, add it to your `webpack.config.js` file:
