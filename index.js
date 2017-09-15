@@ -36,8 +36,8 @@ function HtmlReplaceWebpackPlugin(options)
       }
       else
       {
-        // htmlData = htmlData.replace(option.pattern, option.replacement) // v2.2.4@npmjs.com
-        htmlData = htmlData.split(option.pattern).join(option.replacement) // v2.2.5@npmjs.com
+        // htmlData = htmlData.replace(option.pattern, option.replacement)
+        htmlData = htmlData.split(option.pattern).join(option.replacement)
       }
     })
     return htmlData
@@ -46,14 +46,14 @@ function HtmlReplaceWebpackPlugin(options)
 
 HtmlReplaceWebpackPlugin.prototype.apply = function(compiler)
 {
-  var self = this
+  var _this = this
   compiler.plugin('compilation', function(compilation)
   {
     // console.log('The compiler is starting a new compilation...')
     compilation.plugin('html-webpack-plugin-before-html-processing',
       function(htmlPluginData, callback)
       {
-        htmlPluginData.html = self.replace(htmlPluginData.html)
+        htmlPluginData.html = _this.replace(htmlPluginData.html)
         callback(null, htmlPluginData)
       })
   })

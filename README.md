@@ -9,7 +9,7 @@ https://github.com/iminif/html-replace-webpack-plugin-howto
 First, install `html-replace-webpack-plugin` as a development dependency:
 
 ```shell
-npm i --save-dev html-replace-webpack-plugin
+npm i -D html-replace-webpack-plugin
 ```
 
 Then, add it to your `webpack.config.js` file:
@@ -18,6 +18,20 @@ Then, add it to your `webpack.config.js` file:
 ```javascript
 var webpack = require('webpack')
 var HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin')
+
+// file types & file links
+const resource = {
+  js: {'bootstrap': '//cdn/bootstrap/bootstrap.min.js'},
+  css: {'bootstrap': '//cdn/bootstrap/bootstrap.min.css'},
+  img:{'the-girl': '//cdn/img/the-girl.jpg'}
+}
+
+const tpl = {
+  img: '<img src="%s">',
+  css: '<link rel="stylesheet" type="text/css" href="%s">',
+  js: '<script type="text/javascript" src="%s"></script>'
+}
+```
 
 module.exports = {
   // Definition for Webpack plugins
@@ -51,20 +65,6 @@ module.exports = {
     }])
   ]
 }
-
-// file types & file links
-const resource = {
-  js: {'bootstrap': '//cdn/bootstrap/bootstrap.min.js'},
-  css: {'bootstrap': '//cdn/bootstrap/bootstrap.min.css'},
-  img:{'the-girl': '//cdn/img/the-girl.jpg'}
-}
-
-const tpl = {
-  img: '<img src="%s">',
-  css: '<link rel="stylesheet" type="text/css" href="%s">',
-  js: '<script type="text/javascript" src="%s"></script>'
-}
-```
 
 #### In your `src/index.html` file:
 ```html
