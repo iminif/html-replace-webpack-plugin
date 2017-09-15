@@ -31,7 +31,6 @@ const tpl = {
   css: '<link rel="stylesheet" type="text/css" href="%s">',
   js: '<script type="text/javascript" src="%s"></script>'
 }
-```
 
 module.exports = {
   // Definition for Webpack plugins
@@ -65,6 +64,7 @@ module.exports = {
     }])
   ]
 }
+```
 
 #### In your `src/index.html` file:
 ```html
