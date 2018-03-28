@@ -47,10 +47,10 @@ function HtmlReplaceWebpackPlugin(options)
 HtmlReplaceWebpackPlugin.prototype.apply = function(compiler)
 {
   var _this = this
-  compiler.plugin('compilation', function(compilation)
+  compiler.hooks.compilation.tap('HtmlReplaceWebpackPlugin', function(compilation)
   {
     // console.log('The compiler is starting a new compilation...')
-    compilation.plugin('html-webpack-plugin-before-html-processing',
+    compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync('html-webpack-plugin-before-html-processing',
       function(htmlPluginData, callback)
       {
         htmlPluginData.html = _this.replace(htmlPluginData.html)
