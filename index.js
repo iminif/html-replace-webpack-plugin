@@ -38,11 +38,11 @@ function HtmlReplaceWebpackPlugin(options) {
 HtmlReplaceWebpackPlugin.prototype.apply = function(compiler) {
   if (compiler.hooks) {
     compiler.hooks.compilation.tap('HtmlReplaceWebpackPlugin', compilation => {
-      compilation.hooks.htmlWebpackPluginAfterHtmlProcessing.tapAsync('html-webpack-plugin-after-html-processing', this.replace)
+      compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync('html-webpack-plugin-before-html-processing', this.replace)
     })
   } else {
     compiler.plugin('compilation', compilation => {
-      compilation.plugin('html-webpack-plugin-after-html-processing', this.replace)
+      compilation.plugin('html-webpack-plugin-before-html-processing', this.replace)
     })
   }
 }
