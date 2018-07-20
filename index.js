@@ -37,7 +37,7 @@ function HtmlReplaceWebpackPlugin(options) {
 
 HtmlReplaceWebpackPlugin.prototype.apply = function(compiler) {
   if (compiler.hooks) {
-    compiler.hooks.run.tap('HtmlReplaceWebpackPlugin', compilation => {
+    compiler.hooks.compilation.tap('HtmlReplaceWebpackPlugin', compilation => {
       compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync('html-webpack-plugin-before-html-processing', this.replace)
     })
   } else {
