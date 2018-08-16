@@ -4,6 +4,9 @@ A Webpack plugin for replace HTML contents with custom pattern string or regex.
 ## Examples
 https://github.com/iminif/html-replace-webpack-plugin-howto
 
+## :exclamation: SpecialNote! :sparkles:
+<span style="color:#c00">This plugin works together with the</span> [html-webpack-plugin] <span style="color:#c00">plugin!</span>
+
 ## Usage
 
 First, install `html-replace-webpack-plugin` as a development dependency:
@@ -119,6 +122,7 @@ Type: `String` | `Function`
 
 string with which the matching string be replaced, or function which returns a string for replacing. See the [MDN documentation for String.replace] for details.
 
+[html-webpack-plugin]: https://www.npmjs.com/package/html-webpack-plugin
 [html-replace-webpack-plugin]: https://www.npmjs.com/package/html-replace-webpack-plugin
 [MDN documentation for RegExp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 [MDN documentation for String.replace]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_string_as_a_parameter
