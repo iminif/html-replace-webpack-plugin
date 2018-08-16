@@ -5,7 +5,7 @@ A Webpack plugin for replace HTML contents with custom pattern string or regex.
 https://github.com/iminif/html-replace-webpack-plugin-howto
 
 ## :green_heart: Special Note! :sparkles:
-<span style="color:#c00">This plugin works together with the</span> [html-webpack-plugin] <span style="color:#c00">plugin!</span>
+This plugin works together with the [html-webpack-plugin] plugin!
 
 ## Usage
 
