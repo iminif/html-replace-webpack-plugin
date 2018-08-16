@@ -4,8 +4,8 @@ A Webpack plugin for replace HTML contents with custom pattern string or regex.
 ## Examples
 https://github.com/iminif/html-replace-webpack-plugin-howto
 
-## :green_heart: Special Note! :sparkles:
-This plugin works together with the [html-webpack-plugin] plugin!
+## :green_heart: Special Note! :eyes:
+This plugin works together with [html-webpack-plugin]!
 
 ## Usage
 
