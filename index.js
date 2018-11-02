@@ -18,7 +18,7 @@ function HtmlReplaceWebpackPlugin(options) {
           isPatternValid = false
         }
 
-        if (!isPatternValid) throw new Error("Invalid `pattern` option provided, it must be a valid regex.")
+        if (!isPatternValid) throw new Error('Invalid `pattern` option provided, it must be a valid regex.')
         while ((matches = option.pattern.exec(htmlPluginData.html)) != null) {
           var replacement = option.replacement.apply(null, matches)
 
@@ -38,7 +38,11 @@ function HtmlReplaceWebpackPlugin(options) {
 HtmlReplaceWebpackPlugin.prototype.apply = function(compiler) {
   if (compiler.hooks) {
     compiler.hooks.compilation.tap('HtmlReplaceWebpackPlugin', compilation => {
-      compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync('html-webpack-plugin-before-html-processing', this.replace)
+      if (compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing) {
+        compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync('HtmlReplaceWebpackPlugin', this.replace)
+      } else {
+        throw new Error('Please ensure that `html-webpack-plugin` was placed before `html-replace-webpack-plugin` in your Webpack config if you were working with Webpack 4.x!')
+      }
     })
   } else {
     compiler.plugin('compilation', compilation => {
