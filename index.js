@@ -41,7 +41,13 @@ HtmlReplaceWebpackPlugin.prototype.apply = function(compiler) {
       if (compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing) {
         compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync('HtmlReplaceWebpackPlugin', this.replace)
       } else {
-        throw new Error('Please ensure that `html-webpack-plugin` was placed before `html-replace-webpack-plugin` in your Webpack config if you were working with Webpack 4.x!')
+        var HtmlWebpackPlugin = require('html-webpack-plugin')
+
+        if (!HtmlWebpackPlugin) {
+          throw new Error('Please ensure that `html-webpack-plugin` was placed before `html-replace-webpack-plugin` in your Webpack config if you were working with Webpack 4.x!')
+        }
+
+        HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync('HtmlReplaceWebpackPlugin', this.replace)
       }
     })
   } else {
