@@ -1,6 +1,6 @@
 {
   "name": "html-replace-webpack-plugin",
-  "version": "2.5.5",
+  "version": "2.5.6",
   "description": "A Webpack plugin for replace HTML contents with custom pattern string or regex.",
   "main": "index.js",
   "scripts": {
