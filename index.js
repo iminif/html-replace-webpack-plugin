@@ -38,8 +38,8 @@ function HtmlReplaceWebpackPlugin(options) {
 HtmlReplaceWebpackPlugin.prototype.apply = function(compiler) {
   if (compiler.hooks) {
     compiler.hooks.compilation.tap('HtmlReplaceWebpackPlugin', compilation => {
-      if (compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing) {
-        compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync('HtmlReplaceWebpackPlugin', this.replace)
+      if (compilation.hooks.htmlWebpackPluginAfterHtmlProcessing) {
+        compilation.hooks.htmlWebpackPluginAfterHtmlProcessing.tapAsync('HtmlReplaceWebpackPlugin', this.replace)
       } else {
         var HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -47,12 +47,12 @@ HtmlReplaceWebpackPlugin.prototype.apply = function(compiler) {
           throw new Error('Please ensure that `html-webpack-plugin` was placed before `html-replace-webpack-plugin` in your Webpack config if you were working with Webpack 4.x!')
         }
 
-        HtmlWebpackPlugin.getHooks(compilation).afterTemplateExecution.tapAsync('HtmlReplaceWebpackPlugin', this.replace)
+        HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync('HtmlReplaceWebpackPlugin', this.replace)
       }
     })
   } else {
     compiler.plugin('compilation', compilation => {
-      compilation.plugin('html-webpack-plugin-before-html-processing', this.replace)
+      compilation.plugin('html-webpack-plugin-beforeEmit', this.replace)
     })
   }
 }
