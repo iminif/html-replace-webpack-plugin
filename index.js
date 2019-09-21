@@ -26,8 +26,9 @@ function HtmlReplaceWebpackPlugin(options) {
           htmlPluginData.html = htmlPluginData.html.replace(matches[0], replacement)
         }
       } else {
-        // htmlPluginData.html.replace(option.pattern, option.replacement)
-        htmlPluginData.html = htmlPluginData.html.split(option.pattern).join(option.replacement)
+        if (option.pattern instanceof RegExp)
+            htmlPluginData.html = htmlPluginData.html.replace(option.pattern, option.replacement)
+        else htmlPluginData.html = htmlPluginData.html.split(option.pattern).join(option.replacement)
       }
     })
 

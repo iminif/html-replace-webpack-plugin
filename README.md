@@ -57,6 +57,10 @@ module.exports = {
         pattern: '@@title',
         replacement: 'html replace webpack plugin'
       },
+            {
+        pattern: /<p>(.+?)<\/p>/g, // /g => replace all
+        replacement: '<div>$1</div>'
+      },
       {
         pattern: /(<!--\s*|@@)(css|js|img):([\w-\/]+)(\s*-->)?/g,
         replacement: function(match, $1, type, file, $4, index, input) {
@@ -90,6 +94,7 @@ module.exports = {
     </head>
     <body>
       <div>foo</div>
+      <p>I wanna be in a div</p>
       <!-- js:bootstrap -->
     </body>
 </html>
@@ -106,6 +111,7 @@ module.exports = {
     </head>
     <body>
       <div>`foo` has been replaced with `bar`</div>
+      <div>I wanna be in a div</div>
       <script type="text/javascript" src="//cdn/bootstrap/bootstrap.min.js"></script>
     </body>
 </html>
